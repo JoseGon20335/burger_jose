@@ -81,6 +81,8 @@ PD: Ingresar a este archivo para ver la docuemntacion en formato PDF:
 - Asegurarse de tener todas las dependencias 
 - Correr el comando:
   npm run test
+  
+  ![prueba unitarias](https://github.com/JoseGon20335/burger_jose/assets/100246655/34ae78b6-876a-4bf2-af90-77769393a226)
 
 # TODO TASKS:
 

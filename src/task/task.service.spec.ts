@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TasksService } from './tasks.service';
+import { TasksService } from '../task/task.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Task } from './task.entity';
+import { Task } from '../entity/task.entity';
 
 describe('TasksService', () => {
   let service: TasksService;
@@ -58,5 +58,56 @@ describe('TasksService', () => {
     });
   });
 
-  // ... más pruebas
+  describe('create', () => {
+    it('should successfully insert a task', async () => {
+      const newTaskDto = { title: 'Test task', description: 'Test description' };
+      const newTask = { id: 1, ...newTaskDto, status: 'pending' };
+  
+      mockTasksRepository.create.mockReturnValue(newTask);
+      mockTasksRepository.save.mockResolvedValue(newTask);
+  
+      expect(await service.create(newTaskDto)).toEqual(newTask);
+      expect(mockTasksRepository.create).toHaveBeenCalledWith(newTaskDto);
+      expect(mockTasksRepository.save).toHaveBeenCalledWith(newTask);
+    });
+  });
+
+  describe('findAll', () => {
+    it('should return an array of tasks', async () => {
+      const taskArray = [
+        { id: 1, title: 'Test task 1', description: 'Test description 1', status: 'pending' },
+        { id: 2, title: 'Test task 2', description: 'Test description 2', status: 'completed' },
+      ];
+  
+      mockTasksRepository.find.mockResolvedValue(taskArray);
+  
+      expect(await service.findAll()).toEqual(taskArray);
+      expect(mockTasksRepository.find).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('findOne', () => {
+    it('should return a single task', async () => {
+      const singleTask = { id: 1, title: 'Test task', description: 'Test description', status: 'pending' };
+  
+      mockTasksRepository.findOne.mockResolvedValue(singleTask);
+  
+      expect(await service.findOne(1)).toEqual(singleTask);
+      expect(mockTasksRepository.findOne).toHaveBeenCalledWith({ where: { id: 1 } });
+    });
+  });
+  
+  describe('remove', () => {
+    it('should delete a task', async () => {
+      const taskToRemove = { id: 1, title: 'Test task', description: 'Test description', status: 'pending' };
+      
+      mockTasksRepository.findOne.mockResolvedValue(taskToRemove);
+      mockTasksRepository.remove.mockResolvedValue(taskToRemove);
+  
+      await service.remove(1);
+      expect(mockTasksRepository.findOne).toHaveBeenCalledWith({ where: { id: 1 } });
+      expect(mockTasksRepository.remove).toHaveBeenCalledWith(taskToRemove);
+    });
+  });
+  
 });

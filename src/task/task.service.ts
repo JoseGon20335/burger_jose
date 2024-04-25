@@ -24,8 +24,8 @@ export class TasksService {
   }
 
   async findOne(id: number): Promise<Task> {
-    return this.tasksRepository.findOne(id);
-  }
+    return this.tasksRepository.findOne({ where: { id: id } });
+  }  
 
   async update(id: number, updateTaskDto: UpdateTaskDto): Promise<Task> {
     const task = await this.tasksRepository.preload({

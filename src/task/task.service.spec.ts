@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { TasksService } from '../task/task.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Task } from '../entity/task.entity';
+import { TaskStatus } from '../dto/task-status-enum';
 
 describe('TasksService', () => {
   let service: TasksService;
@@ -38,7 +39,7 @@ describe('TasksService', () => {
       task.id = 1;
       task.title = 'Test task';
       task.description = 'Test description';
-      task.status = 'pending';
+      task.status = TaskStatus.PENDING;
 
       const updatedTaskDto = { title: 'Updated Test task' };
       const updatedTask = {
@@ -90,7 +91,7 @@ describe('TasksService', () => {
     it('should return a single task', async () => {
       const singleTask = { id: 1, title: 'Test task', description: 'Test description', status: 'pending' };
   
-      mockTasksRepository.findOne.mockResolvedValue(singleTask);
+      mockTasksRepository.findOne.mockResolvedValue(Promise.resolve(singleTask));
   
       expect(await service.findOne(1)).toEqual(singleTask);
       expect(mockTasksRepository.findOne).toHaveBeenCalledWith({ where: { id: 1 } });
@@ -101,8 +102,10 @@ describe('TasksService', () => {
     it('should delete a task', async () => {
       const taskToRemove = { id: 1, title: 'Test task', description: 'Test description', status: 'pending' };
       
-      mockTasksRepository.findOne.mockResolvedValue(taskToRemove);
-      mockTasksRepository.remove.mockResolvedValue(taskToRemove);
+      mockTasksRepository.findOne.mockResolvedValue(Promise.resolve(taskToRemove));
+      mockTasksRepository.remove.mockResolvedValue(Promise.resolve(taskToRemove));
+      // mockTasksRepository.findOne.mockResolvedValue(taskToRemove);
+      // mockTasksRepository.remove.mockResolvedValue(taskToRemove);
   
       await service.remove(1);
       expect(mockTasksRepository.findOne).toHaveBeenCalledWith({ where: { id: 1 } });

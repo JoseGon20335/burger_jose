@@ -74,7 +74,7 @@ $ npm install typescript
 - Ejemplo: http://localhost:3000/api/docs
 
 PD: Ingresar a este archivo para ver la docuemntacion en formato PDF:
-- 
+- [Swagger UI.pdf](https://github.com/JoseGon20335/burger_jose/files/15123269/Swagger.UI.pdf)
 
 3. Iniciar pruebas unitarias, haciendo uso de npm.
 

@@ -6,7 +6,6 @@ import rateLimit from 'express-rate-limit';
 import { ExceptionFilter, Catch, ArgumentsHost, HttpException } from '@nestjs/common';
 import { Response } from 'express';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-// import * as helmet from 'helmet';
 
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {

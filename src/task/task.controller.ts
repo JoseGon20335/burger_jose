@@ -35,17 +35,28 @@ export class TasksController {
   }
 
   @ApiOperation({ summary: 'Actualizar una tarea específica' })
-  @ApiParam({ name: 'id', description: 'ID de la tarea a actualizar', type: 'number' })
+  @ApiParam({
+    name: 'id',
+    description: 'ID de la tarea a actualizar',
+    type: 'number',
+  })
   @ApiResponse({ status: 200, description: 'Tarea actualizada correctamente.' })
   @ApiResponse({ status: 400, description: 'Datos inválidos.' })
   @ApiResponse({ status: 404, description: 'Tarea no encontrada.' })
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateTaskDto: UpdateTaskDto): Promise<Task> {
+  update(
+    @Param('id') id: string,
+    @Body() updateTaskDto: UpdateTaskDto,
+  ): Promise<Task> {
     return this.tasksService.update(+id, updateTaskDto);
   }
 
   @ApiOperation({ summary: 'Eliminar una tarea específica' })
-  @ApiParam({ name: 'id', description: 'ID de la tarea a eliminar', type: 'number' })
+  @ApiParam({
+    name: 'id',
+    description: 'ID de la tarea a eliminar',
+    type: 'number',
+  })
   @ApiResponse({ status: 200, description: 'Tarea eliminada correctamente.' })
   @ApiResponse({ status: 404, description: 'Tarea no encontrada.' })
   @Delete(':id')

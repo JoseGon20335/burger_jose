@@ -1,58 +1,59 @@
 # INTRUCTIONS:
 
 ## DEPENDENCIAS A INSTALAR:
-- @nestjs/core - El núcleo de NestJS.
-  
-  npm install @nestjs/core
 
-- @nestjs/common - Contiene elementos comunes y esenciales de NestJS.
-  
-  npm install @nestjs/common
-
-- @nestjs/platform-express - Adaptador de Express para NestJS.
-  
-  npm install @nestjs/platform-express
-
-- rxjs - Biblioteca para programación reactiva utilizando Observables.
-  
-  npm install rxjs
-
-- @nestjs/swagger - Módulo para la generación de documentación de API con Swagger.
-  
-  npm install @nestjs/swagger swagger-ui-express
-
-- @nestjs/typeorm - Integración de TypeORM con NestJS para la manipulación de bases de datos.
-  
-  npm install @nestjs/typeorm typeorm
-
-- pg - Cliente PostgreSQL para Node.js (necesario si estás utilizando PostgreSQL).
-  
-  npm install pg
-
-- class-validator - Permite el uso de decoradores para validar datos entrantes.
-  
-  npm install class-validator
-
-- class-transformer - Permite transformar objetos de una clase a otra y manipular objetos.
-  
-  npm install class-transformer
-
-- jest - Framework de pruebas para JavaScript.
-  
-  npm install jest @nestjs/testing ts-jest --save-dev
-
-- supertest - Utilidad para probar HTTP (útil para pruebas e2e).
-  
-  npm install supertest --save-dev
-
-- reflect-metadata - Biblioteca necesaria para el funcionamiento de los decoradores de TypeScript.
-  
-  npm install reflect-metadata
-
-- typescript - Superset de JavaScript que añade tipos.
-  
-  npm install typescript
-
+```
+# @nestjs/core - El núcleo de NestJS.
+$ npm install @nestjs/core
+```
+```
+# @nestjs/common - Contiene elementos comunes y esenciales de NestJS.
+$ npm install @nestjs/common
+```
+```
+# @nestjs/platform-express - Adaptador de Express para NestJS.
+$ npm install @nestjs/platform-express
+```
+```
+# rxjs - Biblioteca para programación reactiva utilizando Observables.
+$ npm install rxjs
+```
+```
+# @nestjs/swagger - Módulo para la generación de documentación de API con Swagger.
+$ npm install @nestjs/swagger swagger-ui-express
+```
+```
+# @nestjs/typeorm - Integración de TypeORM con NestJS para la manipulación de bases de datos.
+$ npm install @nestjs/typeorm typeorm
+```
+```
+# pg - Cliente PostgreSQL para Node.js (necesario si estás utilizando PostgreSQL).
+$ npm install pg
+```
+```
+# class-validator - Permite el uso de decoradores para validar datos entrantes.
+$ npm install class-validator
+```
+```
+# class-transformer - Permite transformar objetos de una clase a otra y manipular objetos.
+$ npm install class-transformer
+```
+```
+# jest - Framework de pruebas para JavaScript.
+$ npm install jest @nestjs/testing ts-jest --save-dev
+```
+```
+# supertest - Utilidad para probar HTTP (útil para pruebas e2e).
+$ npm install supertest --save-dev
+```
+```
+# reflect-metadata - Biblioteca necesaria para el funcionamiento de los decoradores de TypeScript.
+$ npm install reflect-metadata
+```
+```
+# typescript - Superset de JavaScript que añade tipos.
+$ npm install typescript
+```
 1. Ir al archivo "src\app.module.ts" dentro ubicar la informacion de la base de datos a utilizar (debe ser una base de datos postgresSQL):
 
   type: 'postgres' (no modificar)

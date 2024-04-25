@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Task } from './entity/task.entity'; // Asegúrate de que la ruta al archivo de entidad sea correcta
+import { TaskModule } from './task/task.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { Task } from './entity/task.entity'; // Asegúrate de que la ruta al arc
       entities: [Task], // las entidades que TypeORM usará para crear las tablas
       synchronize: true, // en desarrollo puede estar en true para sincronizar el esquema de la base de datos, pero debe estar en false en producción
     }),
+    TaskModule,
     // ... otros módulos
   ],
   // ... controladores y proveedores

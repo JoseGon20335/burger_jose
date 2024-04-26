@@ -83,6 +83,39 @@ PD: Ingresar a este archivo para ver la docuemntacion en formato PDF: [Swagger U
   
   ![prueba unitarias](https://github.com/JoseGon20335/burger_jose/assets/100246655/34ae78b6-876a-4bf2-af90-77769393a226)
 
+4. Pruebas en POSTMAN:
+
+- Descargar e instalar Postman: https://www.postman.com/downloads/
+- Una vez instalado, debemos crear una nueva pestaña de trabajo e ingresar dentro de la URL la dirrecion que usaremos: http://[DIRRECION]:[PORT]/tasks
+
+4.1 Prueba crear una task
+- Cambiar tipo de solicitud HTTP a *POST*
+- Ingresar la URL http://[DIRRECION]:[PORT]/tasks
+- Ir a la seccion de "Body", seleccionar tipo de entrada "raw" luego JSON para que conozca el formato, posteriormente ingresar la solicitud:
+{
+  "title": "Mi nueva tarea",
+  "description": "Esta es una descripción de la tarea",
+  "status": "pendiente"
+}
+
+4.2 Prueba obtener task
+- Cambiar tipo de solicitud HTTP a *GET*
+- Ingresar la URL http://[DIRRECION]:[PORT]/tasks
+
+4.3 Prueba actualizar una task
+- Cambiar tipo de solicitud HTTP a *PUT*
+- Ingresar la URL http://[DIRRECION]:[PORT]/tasks/{id_de_task}
+- Ir a la seccion de "Body", seleccionar tipo de entrada "raw" luego JSON para que conozca el formato, posteriormente ingresar la solicitud:
+{
+  "title": "Tarea Actualizada",
+  "description": "Descripción actualizada de la tarea",
+  "status": "en progreso"
+}
+
+4.4 Prueba borrar una task
+- Cambiar tipo de solicitud HTTP a *POST*
+- Ingresar la URL http://[DIRRECION]:[PORT]/tasks/{id_de_task}
+
 # TODO TASKS:
 
 ## Requisitos Funcionales:

@@ -92,11 +92,13 @@ PD: Ingresar a este archivo para ver la docuemntacion en formato PDF: [Swagger U
 - Cambiar tipo de solicitud HTTP a *POST*
 - Ingresar la URL http://[DIRRECION]:[PORT]/tasks
 - Ir a la seccion de "Body", seleccionar tipo de entrada "raw" luego JSON para que conozca el formato, posteriormente ingresar la solicitud:
+```
 {
   "title": "Mi nueva tarea",
   "description": "Esta es una descripción de la tarea",
   "status": "pendiente"
 }
+```
 
 4.2 Prueba obtener task
 - Cambiar tipo de solicitud HTTP a *GET*
@@ -106,11 +108,13 @@ PD: Ingresar a este archivo para ver la docuemntacion en formato PDF: [Swagger U
 - Cambiar tipo de solicitud HTTP a *PUT*
 - Ingresar la URL http://[DIRRECION]:[PORT]/tasks/{id_de_task}
 - Ir a la seccion de "Body", seleccionar tipo de entrada "raw" luego JSON para que conozca el formato, posteriormente ingresar la solicitud:
+```
 {
   "title": "Tarea Actualizada",
   "description": "Descripción actualizada de la tarea",
   "status": "en progreso"
 }
+```
 
 4.4 Prueba borrar una task
 - Cambiar tipo de solicitud HTTP a *POST*
